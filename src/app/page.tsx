@@ -9,6 +9,7 @@ export default function Home() {
       <ChumashComponent verseNumber={1} verseText="In the beginning God created the heavens and the earth." />
       <EnglishTranslationComponent verseNumber={1} translationText="In the beginning God created the heavens and the earth." />
       <RashiComponent verseNumber={1} verseText="In the beginning" commentary="Rashi's commentary on the verse." />
+      <OnkelosComponent verseNumber={1} verseText="In the beginning God created the heavens and the earth." />
     </div>
   );
 }
