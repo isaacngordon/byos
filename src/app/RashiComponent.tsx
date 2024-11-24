@@ -8,7 +8,7 @@ export function RashiComponent({ verseNumber, verseText, commentary }: RashiProp
   return (
     <div>
       <h2>Rashi</h2>
-      {verseNumber} <strong>{verseText}</strong>: {commentary}
+      <p>{verseNumber}: <strong>{verseText}.</strong> {commentary}</p>
     </div>
   );
 }

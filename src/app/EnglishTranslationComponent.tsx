@@ -7,7 +7,7 @@ export function EnglishTranslationComponent({ verseNumber, translationText }: En
   return (
     <div>
       <h2>English Translation</h2>
-      {verseNumber}: {translationText}
+      <p>{verseNumber}: {translationText}</p>
     </div>
   );
 }

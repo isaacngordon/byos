@@ -7,7 +7,7 @@ export function OnkelosComponent({ verseNumber, verseText }: OnkelosProps) {
   return (
     <div>
       <h2>Onkelos</h2>
-      {verseNumber}: {verseText}
+      <p>{verseNumber}: {verseText}</p>
     </div>
   );
 }
