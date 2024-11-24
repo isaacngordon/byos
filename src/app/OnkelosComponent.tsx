@@ -6,7 +6,7 @@ interface OnkelosProps {
 export function OnkelosComponent({ verseNumber, verseText }: OnkelosProps) {
   return (
     <div>
-      <h2>Onkelos</h2>
+      <h2 className="text-right">Onkelos</h2>
       <p>{verseNumber}: {verseText}</p>
     </div>
   );
