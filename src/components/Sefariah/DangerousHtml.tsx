@@ -1,9 +1,9 @@
 "use client";
 // remove any not allowed html elements, and then return the whole text as dangerously set html span
-export default function DangerousHtml({ 
+export default function DangerousHtml({
   text, whitelisted_elements, className = "m-0 p-0 w-full h-full"
-}: { 
-  text: string, whitelisted_elements: string[], className?: string 
+}: {
+  text: string, whitelisted_elements: string[], className?: string
 }) {
   const set_of_found_elements = new Set(text.split(/(<\/?[a-z][^>]*>)/i)
     .filter((element) => whitelisted_elements.includes(element.slice(1, element.length - 1))));
@@ -17,8 +17,8 @@ export default function DangerousHtml({
       console.log("Removed Element:", element);
     }
   }
-  return <div 
-    dangerouslySetInnerHTML={{ __html: text }} 
+  return <div
+    dangerouslySetInnerHTML={{ __html: text }}
     className={className}
   />;
 }
