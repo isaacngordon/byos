@@ -1,6 +1,6 @@
 "use client";
 import {  useState } from "react";
-import { dangerParser } from "@/components/Sefariah/DangerousHtml";
+import  DangerousHtml  from "@/components/Sefariah/DangerousHtml";
 
 export default function Search() {
 
@@ -31,7 +31,16 @@ export default function Search() {
           Search
         </button>
       </form>
-    <p>Text: {dangerParser(text)}</p>
+        <div className="flex w-full max-w-2xl space-x-2">
+          <div className="w-1/10">
+            {/* Left column content */}
+            Text:
+          </div>
+          <div className="w-9/10 ">
+            {/* Right column content */}
+            <DangerousHtml text={text} />
+          </div>
+      </div>
     </div>
   );
 }
