@@ -2,6 +2,8 @@
 import {  useState } from "react";
 import  DangerousHtml  from "@/components/Sefariah/DangerousHtml";
 
+const whitelist = ["span", "b", "i", "u", "br", "big"];
+
 export default function Search() {
 
   const [text, setText] = useState("");
@@ -38,7 +40,7 @@ export default function Search() {
           </div>
           <div className="w-9/10 ">
             {/* Right column content */}
-            <DangerousHtml text={text} />
+            <DangerousHtml text={text} whitelisted_elements={whitelist} />
           </div>
       </div>
     </div>
