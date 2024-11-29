@@ -1,7 +1,7 @@
 "use client";
 // remove any not allowed html elements, and then return the whole text as dangerously set html span
 export default function DangerousHtml({
-  text, whitelisted_elements, className = "m-0 p-0 w-full h-full"
+  text, whitelisted_elements, className
 }: {
   text: string, whitelisted_elements: string[], className?: string
 }) {
