@@ -17,8 +17,8 @@ export default async function Home() {
 
   return (
     <div className="p-8 gap-4 flex flex-col items-center bg-gray-900 text-white justify-center min-h-screen">
-    {/* <div className="flex flex-col p-8 gap-4"> */}
-    {/* <div className="flex flex-col items-center justify-center min-h-screen p-8 gap-4"> */}
+      {/* <div className="flex flex-col p-8 gap-4"> */}
+      {/* <div className="flex flex-col items-center justify-center min-h-screen p-8 gap-4"> */}
       <Search />
     </div>
   );
