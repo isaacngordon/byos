@@ -2,6 +2,7 @@ export const SEFARIA_API_ENDPOINTS = {
   search: "https://www.sefaria.org/api/search-wrapper",
   related: (textRef: string) => `https://www.sefaria.org/api/related/${encodeURIComponent(textRef)}`,
   text: (textRef: string) => `https://www.sefaria.org/api/v3/texts/${encodeURIComponent(textRef)}`,
+  sefaria_site: (textRef: string) => `https://www.sefaria.org/${encodeURIComponent(textRef)}`,
 };
 
 export async function searchSefaria(query: string, filters: string[] = [], size: number = 10) {
