@@ -27,21 +27,26 @@ interface SefariahRelatedText {
   heTitle: string;
 }
 
+interface Reference {
+  index_title: string;
+  ref: string;
+}
+
 export default function Search() {
 
   const [text, setText] = useState("");
   const [relatedReferences, setRelatedReferences] = useState<string[]>([]);
-  const [selected_references, setSelectedReferences] = useState<string[]>([]);
+  const [selected_references, setSelectedReferences] = useState<Reference[]>([]);
 
   const unselectReference = (index: number) => {
     const item = selected_references[index];
     setSelectedReferences([...selected_references.slice(0, index), ...selected_references.slice(index + 1)]);
-    setRelatedReferences([...relatedReferences, item].sort());
+    setRelatedReferences([...relatedReferences, item.index_title].sort());
   };
 
   const selectReference = (index: number) => {
     const item = relatedReferences[index];
-    setSelectedReferences([...selected_references, item].sort());
+    setSelectedReferences([...selected_references, { index_title: item, ref: "" }].sort((a, b) => a.index_title.localeCompare(b.index_title)));
     setRelatedReferences([...relatedReferences.slice(0, index), ...relatedReferences.slice(index + 1)]);
   };
 
