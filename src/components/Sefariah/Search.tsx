@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import DangerousHtml from "@/components/Sefariah/DangerousHtml";
-import { fetchText } from "../../../client/sefariaUtils";
+import { fetchText, fetchRelatedTexts } from "../../../client/sefariaUtils";
 
 const whitelist = ["span", "b", "i", "u", "br", "big"];
 
@@ -49,14 +49,11 @@ export default function Search() {
     const formData = new FormData(e.currentTarget);
     const text_ref = formData.get("text-ref") as string;
     const the_text = await fetchText(text_ref);
-    const related_api = "https://www.sefaria.org/api/related/" + encodeURIComponent(text_ref);
-    console.log("Related API:", related_api);
 
 
     setText(the_text);
 
-    const related_response = await fetch(related_api).then((response) => response.json());
-    const related = related_response.links as SefariahRelatedText[];
+    const related = await fetchRelatedTexts(text_ref) as SefariahRelatedText[];
     console.log(related.length, "related texts found.");
     const refs = Array.from(new Set(related.map((item) => item.index_title))).sort();
     console.log(refs);

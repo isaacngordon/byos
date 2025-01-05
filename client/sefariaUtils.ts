@@ -22,6 +22,18 @@ export async function searchSefaria(query: string, filters: string[] = [], size:
   return response.json();
 }
 
+export async function fetchRelatedTexts(textRef: string) {
+  const relatedApi = "https://www.sefaria.org/api/related/" + encodeURIComponent(textRef);
+  const response = await fetch(relatedApi);
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch related texts");
+  }
+
+  const relatedResponse = await response.json();
+  return relatedResponse.links;
+}
+
 export async function fetchText(textRef: string) {
   const textApi = "https://www.sefaria.org/api/v3/texts/" + encodeURIComponent(textRef);
   const response = await fetch(textApi);
