@@ -2,6 +2,7 @@
 import { useState } from "react";
 import DangerousHtml from "@/components/Sefariah/DangerousHtml";
 import { fetchText, fetchRelatedTexts } from "../../../client/sefariaUtils";
+import RelatedCard from "./RelatedCard";
 
 const whitelist = ["span", "b", "i", "u", "br", "big"];
 
@@ -102,6 +103,14 @@ export default function Search() {
         </ul>
       </div>
 
+      <div className="mt-4">
+        <h3 className="text-xl font-bold">Related Cards</h3>
+        <div className="grid grid-cols-1 gap-4">
+          {selected_references.map((item, index) => (
+            <RelatedCard key={index} title={item} />
+          ))}
+        </div>
+      </div>
     </div>
 
     //  TODO: Add Cards for each selected, related reference
