@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
-import { fetchText } from "../../../client/sefariaUtils";
+import { useState } from "react";
+import { fetchText, SEFARIA_API_ENDPOINTS } from "../../../client/sefariaUtils";
+import Link from "next/link";
 
 interface RelatedCardProps {
   title: string;
@@ -9,22 +10,23 @@ interface RelatedCardProps {
 export default function RelatedCard({ title, ref }: RelatedCardProps) {
   const [textSnippet, setTextSnippet] = useState("");
 
-  useEffect(() => {
-    const fetchSnippet = async () => {
-      const fullText = await fetchText(ref);
-      setTextSnippet(fullText.slice(0, 200));
-    };
+  console.log("Title: ", title);
+  console.log("Ref: ", ref);
 
-    fetchSnippet();
-  }, [ref]);
+  const fetchSnippet = async () => {
+    const fullText = await fetchText(ref);
+    setTextSnippet(fullText.slice(0, 200));
+  };
+
+  fetchSnippet();
 
   return (
     <div className="border border-gray-300 p-4 rounded-lg bg-gray-700 text-white">
       <h4 className="text-lg font-bold">{title}</h4>
       <p>{textSnippet}...</p>
-      <a href={`https://www.sefaria.org/${encodeURIComponent(ref)}`} target="_blank" rel="noopener noreferrer" className="text-blue-400">
+      <Link href={`${SEFARIA_API_ENDPOINTS.text(ref)}`} target="_blank" className="text-blue-400">
         Read more
-      </a>
+      </Link>
     </div>
   );
 }

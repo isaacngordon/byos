@@ -1,5 +1,10 @@
+export const SEFARIA_API_ENDPOINTS = {
+  search: "https://www.sefaria.org/api/search-wrapper",
+  related: (textRef: string) => `https://www.sefaria.org/api/related/${encodeURIComponent(textRef)}`,
+  text: (textRef: string) => `https://www.sefaria.org/api/v3/texts/${encodeURIComponent(textRef)}`,
+};
+
 export async function searchSefaria(query: string, filters: string[] = [], size: number = 10) {
-  const searchApi = "https://www.sefaria.org/api/search-wrapper";
   const body = {
     query,
     filters,
@@ -7,7 +12,7 @@ export async function searchSefaria(query: string, filters: string[] = [], size:
     type: "text",
   };
 
-  const response = await fetch(searchApi, {
+  const response = await fetch(SEFARIA_API_ENDPOINTS.search, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -23,8 +28,7 @@ export async function searchSefaria(query: string, filters: string[] = [], size:
 }
 
 export async function fetchRelatedTexts(textRef: string) {
-  const relatedApi = "https://www.sefaria.org/api/related/" + encodeURIComponent(textRef);
-  const response = await fetch(relatedApi);
+  const response = await fetch(SEFARIA_API_ENDPOINTS.related(textRef));
 
   if (!response.ok) {
     throw new Error("Failed to fetch related texts");
@@ -35,15 +39,14 @@ export async function fetchRelatedTexts(textRef: string) {
 }
 
 export async function fetchText(textRef: string) {
-  const textApi = "https://www.sefaria.org/api/v3/texts/" + encodeURIComponent(textRef);
-  const response = await fetch(textApi);
+  const response = await fetch(SEFARIA_API_ENDPOINTS.text(textRef));
 
   if (!response.ok) {
     throw new Error("Failed to fetch text");
   }
 
   const textResponse = await response.json();
-  let theText = textResponse.versions[0].text;
+  const theText = textResponse.versions[0].text;
 
   const flattenText = (nestedText: string | []): string => {
     if (typeof nestedText === "string") {
