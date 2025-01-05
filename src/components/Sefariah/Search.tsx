@@ -47,25 +47,11 @@ export default function Search() {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const text_ref = formData.get("text-ref") as string;
-    const text_api = "https://www.sefaria.org/api/v3/texts/" + encodeURIComponent(text_ref);
+    const the_text = await fetchText(text_ref);
     const related_api = "https://www.sefaria.org/api/related/" + encodeURIComponent(text_ref);
     console.log("Text API:", text_api);
     console.log("Related API:", related_api);
 
-    const text_response = await fetch(text_api).then((response) => response.json());
-    let the_text = text_response.versions[0].text;
-
-    // when text is not a string, it is an object which is a list of individual pieces of the text
-    // For a commentary, individual elements are individual comments on some part of the verse
-    const flattenText = (nestedText: string | []): string => {
-      if (typeof nestedText === "string") {
-        return nestedText;
-      }
-      return nestedText.map(flattenText).join("<br>");
-    };
-
-    the_text = flattenText(the_text);
-    console.log(`Text <type ${typeof the_text}>:`, the_text);
 
     setText(the_text);
 
