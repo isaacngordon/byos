@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { fetchText, SEFARIA_API_ENDPOINTS } from "../../../client/sefariaUtils";
 import Link from "next/link";
+import DangerousHtml from "./DangerousHtml";
 
 interface RelatedCardProps {
   title: string;
@@ -23,7 +24,7 @@ export default function RelatedCard({ title, ref }: RelatedCardProps) {
   return (
     <div className="border border-gray-300 p-4 rounded-lg bg-gray-700 text-white">
       <h4 className="text-lg font-bold">{title}</h4>
-      <p>{textSnippet}...</p>
+      <DangerousHtml text={`${textSnippet} ...`} whitelisted_elements={["span", "b", "i", "u", "br", "big"]} className="m-0 p-0" /> 
       <Link href={`${SEFARIA_API_ENDPOINTS.text(ref)}`} target="_blank" className="text-blue-400">
         Read more
       </Link>

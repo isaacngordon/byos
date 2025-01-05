@@ -35,18 +35,18 @@ interface Reference {
 export default function Search() {
 
   const [text, setText] = useState("");
-  const [relatedReferences, setRelatedReferences] = useState<string[]>([]);
+  const [relatedReferences, setRelatedReferences] = useState<Reference[]>([]);
   const [selected_references, setSelectedReferences] = useState<Reference[]>([]);
 
   const unselectReference = (index: number) => {
     const item = selected_references[index];
     setSelectedReferences([...selected_references.slice(0, index), ...selected_references.slice(index + 1)]);
-    setRelatedReferences([...relatedReferences, item.index_title].sort());
+    setRelatedReferences([...relatedReferences, item].sort((a, b) => a.index_title.localeCompare(b.index_title)));
   };
 
   const selectReference = (index: number) => {
     const item = relatedReferences[index];
-    setSelectedReferences([...selected_references, { index_title: item, ref: item }].sort((a, b) => a.index_title.localeCompare(b.index_title)));
+    setSelectedReferences([...selected_references, { index_title: item.index_title, ref: item.ref }].sort((a, b) => a.index_title.localeCompare(b.index_title)));
     setRelatedReferences([...relatedReferences.slice(0, index), ...relatedReferences.slice(index + 1)]);
   };
 
@@ -59,7 +59,10 @@ export default function Search() {
 
     const related = await fetchRelatedTexts(text_ref) as SefariahRelatedText[];
     console.log(related.length, "related texts found.");
-    const refs = Array.from(new Set(related.map((item) => item.index_title))).sort();
+    const refs = Array.from(new Set(related.map((item) => ({
+      index_title: item.index_title,
+      ref: item.ref
+    })))).sort((a, b) => a.index_title.localeCompare(b.index_title));
     console.log(refs);
     setRelatedReferences(refs);
   };
@@ -91,7 +94,7 @@ export default function Search() {
             {
               relatedReferences.map((item, index) => (
                 <li key={index} className="cursor-pointer p-2 hover:bg-gray-700" onClick={() => selectReference(index)}>
-                  {item}
+                  {item.index_title}
                 </li>
               ))
             }
