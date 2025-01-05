@@ -111,14 +111,6 @@ export default function Search() {
           ))}
         </div>
       </div>
-      <div className="mt-4">
-        <h3 className="text-xl font-bold">Related Cards</h3>
-        <div className="grid grid-cols-1 gap-4">
-          {selected_references.map((item, index) => (
-            <RelatedCard key={index} title={item.index_title} ref={item.ref} />
-          ))}
-        </div>
-      </div>
     </div>
 
     //  TODO: Add Cards for each selected, related reference
