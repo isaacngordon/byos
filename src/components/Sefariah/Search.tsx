@@ -46,7 +46,7 @@ export default function Search() {
 
   const selectReference = (index: number) => {
     const item = relatedReferences[index];
-    setSelectedReferences([...selected_references, { index_title: item, ref: "" }].sort((a, b) => a.index_title.localeCompare(b.index_title)));
+    setSelectedReferences([...selected_references, { index_title: item, ref: item }].sort((a, b) => a.index_title.localeCompare(b.index_title)));
     setRelatedReferences([...relatedReferences.slice(0, index), ...relatedReferences.slice(index + 1)]);
   };
 
