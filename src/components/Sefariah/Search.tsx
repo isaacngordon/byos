@@ -94,7 +94,7 @@ export default function Search() {
             {
               relatedReferences.map((item, index) => (
                 <li key={index} className="cursor-pointer p-2 hover:bg-gray-700" onClick={() => selectReference(index)}>
-                  {item.index_title}
+                  {item.ref}
                 </li>
               ))
             }
