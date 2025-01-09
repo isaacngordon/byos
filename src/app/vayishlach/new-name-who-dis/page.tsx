@@ -1,7 +1,8 @@
 "use server";
 import SourceText from "@/components/Sefariah/SourceText";
+import Link from "next/link";
 
-export default function Yisroel() {
+export default async function Yisroel() {
     const addtl_references = [
         "Genesis 32:27",
         "Genesis 45:3",
@@ -20,6 +21,7 @@ export default function Yisroel() {
     return (
         <div className="p-8 gap-4 flex flex-col items-center bg-gray-900 text-white justify-center min-h-screen">
             {/* <SiteMap /> */}
+            <Link href={"/"} className="text-blue-300">Back to Home</Link>
             <div className="flex flex-col p-8 gap-4">
                 <div className="flex flex-col gap-1 mb-8">
                     <p className="text-lg">Parshas Vayishlach</p>
