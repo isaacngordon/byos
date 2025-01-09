@@ -33,13 +33,15 @@ export default function SourceText({ ref, versions, whitelist_html = default_whi
 
     return (
         <div className="border border-gray-300 p-4 rounded-lg bg-gray-700 text-white">
-            <h2 className="text-2xl font-bold">{ref}</h2>
-            <Link href={SEFARIA_API_ENDPOINTS.sefaria_site(ref)} target="_blank" className="text-blue-400 text-sm">
-                Link
-            </Link>
+            <div className="flex flex-row justify-between gap-2 mb-2">
+                <h2 className="text-2xl font-bold">{ref}</h2>
+                <Link href={SEFARIA_API_ENDPOINTS.sefaria_site(ref)} target="_blank" className="text-blue-400 text-sm my-auto">
+                    [Source]
+                </Link>
+            </div>
             <ul>
                 {versions_texts.map((version, index) => (
-                    <DangerousHtml key={index} text={version} whitelisted_elements={whitelist_html} className="mb-2" />
+                    <DangerousHtml key={index} text={version} whitelisted_elements={whitelist_html} className="px-2 py-1" />
                 ))}
             </ul>
         </div>

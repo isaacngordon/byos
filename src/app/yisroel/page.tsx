@@ -15,19 +15,28 @@ export default function Yisroel() {
         "Rabbeinu Bahya, Bereshit 35:10:1-2",
         "Genesis 45:3",
         "Genesis 45:28",
-        "Berachot 12b:26-13a:1",
+        "Berachot 12b:26",
+        "Berachot 12b:27",
+        "Berachot 12b:28",
+        "Berachot 13a:1",
         "Berachot 13a:4-13a:14",
     ]);
 
     return (
         <div className="p-8 gap-4 flex flex-col items-center bg-gray-900 text-white justify-center min-h-screen">
             <div className="flex flex-col p-8 gap-4">
-                <h1 className="text-4xl font-bold">Yisroel</h1>
+                <h1 className="text-4xl font-bold">New Name, Who Dis?</h1>
+                <h2 className="text-xl">Parshas Vayishlach</h2>
+
+                <p>Add text</p>
+
                 {
-                    references.map((data, index) => (
-                        <SourceText key={index} ref={references[index]} versions={["hebrew", "english"]} />
+                    references.map((ref, index) => (
+                        <SourceText key={index} ref={ref} versions={["hebrew", "english"]} />
                     ))
                 }
+
+
             </div>
         </div>
     );
