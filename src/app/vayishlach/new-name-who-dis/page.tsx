@@ -32,7 +32,7 @@ export default async function Yisroel() {
 
 
                 <p>
-                    Why does the Torah continue to call Yaakov by the name <i>&quot;Yaakov&quot;</i>, after he is given the name <i>&quot;Yisroel&quot;</i>? I would think that since by Avraham, who has his name-changed quoted once,  we no longer refer to him by is old name, then by Yaakov, where we state twice that Yaakov will no longer be Yaakov, then a reversion in names certainly should be forbidden!
+                    Why does the Torah continue to call Yaakov by the name <i>&quot;Yaakov&quot;</i>, after he is given the name <i>&quot;Yisroel&quot;</i>? One would think that since by Avraham, who has his name-changed quoted once,  we no longer refer to him by is old name, then by Yaakov, where we state twice that Yaakov will no longer be Yaakov, then a reversion in names certainly should be forbidden!
                 </p>
 
                 <p> Now, it is obvious that his name remains Yaakov since his name is used another XX times in Genesis alone.
