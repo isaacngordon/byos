@@ -4,7 +4,7 @@ import SourceText from "@/components/Sefariah/SourceText";
 
 
 export default function Yisroel() {
-    const [addtl_references, _setAddlReferences] = React.useState<string[]>([
+    const addtl_references = [
         "Genesis 32:27",
         "Genesis 45:3",
         "Bereshit 45:27-28",
@@ -15,7 +15,7 @@ export default function Yisroel() {
         "Rabbeinu Bahya, Bereshit 35:10:1-2",
         // "Berachot 12b:27-13a:1",
         // "Berachot 13a:4-13a:14",
-    ]);
+    ];
 
     const v_order = ["english", "hebrew"];
 
