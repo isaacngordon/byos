@@ -11,6 +11,7 @@ interface SourceTextProps {
     use_cols?: boolean;
     whitelist_html?: string[];
     cols?: number;
+    mutate?: (text: string) => string;
 }
 
 async function get_all_texts(ref: string, versions: string[]) {
@@ -30,7 +31,8 @@ export default function SourceText({
     versions = ["hebrew", "english"], 
     use_cols = false,
     whitelist_html = default_whitelist,
-    cols = 2
+    cols = 2,
+    mutate = (text) => text
 }: SourceTextProps) {
     const [versions_texts, setVersionTexts] = useState<VersionText[]>([]);
     const [loading, setLoading] = useState(true);
@@ -61,7 +63,7 @@ export default function SourceText({
                 {!loading && versions_texts.map((version, index) => (
                     <DangerousHtml
                         key={index}
-                        text={version.text}
+                        text={mutate(version.text)}
                         whitelisted_elements={whitelist_html}
                         className={`px-2 py-1 ${version.version === "hebrew" ? "text-" : "text-sm"}`}
                     />

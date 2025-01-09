@@ -1,4 +1,5 @@
 import Search from "@/components/Sefariah/Search";
+import SiteMap from "@/components/Sefariah/SiteMap";
 
 
 // async function fetchData() {
@@ -19,6 +20,7 @@ export default async function Home() {
     <div className="p-8 gap-4 flex flex-col items-center bg-gray-900 text-white justify-center min-h-screen">
       {/* <div className="flex flex-col p-8 gap-4"> */}
       {/* <div className="flex flex-col items-center justify-center min-h-screen p-8 gap-4"> */}
+      <SiteMap />
       <Search />
     </div>
   );
