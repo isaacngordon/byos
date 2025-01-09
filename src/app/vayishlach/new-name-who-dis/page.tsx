@@ -27,7 +27,7 @@ export default async function Yisroel() {
                 <div className="flex flex-col gap-1 mb-8">
                     <p className="text-lg">Parshas Vayishlach</p>
                     <h1 className="text-4xl font-bold">New Name, Who Dis?</h1>
-                    <h2 className="text-xl">Author</h2>
+                    <h2 className="text-xl">Contributors: Tzachi Gordon, Yoni Greenblatt, and Benjy Borowski</h2>
                 </div>
 
 
