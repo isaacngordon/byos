@@ -68,11 +68,7 @@ export default async function Yisroel() {
                     <br></br>
                     An angel is only capable of carrying out his task, and has no capability to bless of its own accord.
                     Rather, Yaakov&apos;s request to the Angel when he says
-                    <Link
-                        href={SEFARIA_API_ENDPOINTS.sefaria_site("Bereshit 32:27")}
-                        target="_blank"
-                        className="text-blue-300"><i> &quot;וַיֹּ֙אמֶר֙ לֹ֣א אֲשַֽׁלֵּחֲךָ֔ כִּ֖י אִם־בֵּרַכְתָּֽנִי&quot; </i>
-                    </Link>
+                    <TestQuote snippet={"וַיֹּ֙אמֶר֙ לֹ֣א אֲשַֽׁלֵּחֲךָ֔ כִּ֖י אִם־בֵּרַכְתָּֽנִי"} source_ref={"Bereshit 32:27"} />
                     is a request for concession on the matter of the blessing Yaakov took from his brother.
                 </p>
                 <SourceText
@@ -86,12 +82,16 @@ export default async function Yisroel() {
                     reference={"Rashi on Bereshit 32:29:1"}
                     versions={v_order} use_cols={true} cols={v_order.length}
                 />
-                
+
 
                 <p>
                     Now, Ramban brings a proof from the <i>pasuk</i> Bereshit 35:10 itself,
-                    when Hashem actually does bless Yaakov and supplants his name, Hashem states &quot;מְךָ יַעֲקֹב&quot; to assert before anything else that Yaakov&apos;s name is still Yaakov, nothing has changed yet. 
-                    In the same commet, the Ramban cites the end of the <i>pasuk</i> &quot;וַיִּקְרָא אֶת שְׁמוֹ יִשְׂרָאֵל&quot;. as a proof that even after, Yaakov&apos;s name shall not be supplanted
+                    when Hashem actually does bless Yaakov and supplants his name, Hashem states
+                    <TestQuote snippet={"מְךָ יַעֲקֹב"} source_ref={"Bereshit 35:10"} />
+                    to assert before anything else that Yaakov&apos;s name is still Yaakov, nothing has changed yet.
+                    In the same commet, the Ramban cites the end of the <i>pasuk</i>
+                    <TestQuote snippet={"וַיִּקְרָא אֶת שְׁמוֹ יִשְׂרָאֵל"} source_ref={"Bereshit 35:10"} />
+                    as a proof that even after, Yaakov&apos;s name shall not be supplanted
 
                 </p>
                 <SourceText
@@ -147,4 +147,18 @@ export default async function Yisroel() {
             </div>
         </div>
     );
+}
+
+function TestQuote({
+    snippet, source_ref
+}: {
+    snippet: string, source_ref: string
+}): React.ReactElement {
+    return (
+        <Link
+            href={SEFARIA_API_ENDPOINTS.sefaria_site(source_ref)}
+            target="_blank"
+            className="text-blue-300"><i> &quot;{snippet}&quot; </i>
+        </Link>
+    )
 }
