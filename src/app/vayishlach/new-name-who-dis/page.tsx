@@ -1,7 +1,5 @@
-"use client";
-import React from "react";
+"use server";
 import SourceText from "@/components/Sefariah/SourceText";
-
 
 export default function Yisroel() {
     const addtl_references = [

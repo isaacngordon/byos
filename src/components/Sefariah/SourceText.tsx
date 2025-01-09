@@ -1,8 +1,8 @@
-import { useCallback } from 'react';
+"use client";
 import Link from "next/link";
 import { SEFARIA_API_ENDPOINTS, fetchText } from "../../../client/sefariaUtils";
 import DangerousHtml from "./DangerousHtml";
-import { useEffect, useState } from "react";
+import { useEffect, useState , useCallback} from "react";
 
 const default_whitelist = ["span", "b", "i", "u", "br", "big"]
 
