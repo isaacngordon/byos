@@ -22,14 +22,19 @@ export default function Yisroel() {
     return (
         <div className="p-8 gap-4 flex flex-col items-center bg-gray-900 text-white justify-center min-h-screen">
             <div className="flex flex-col p-8 gap-4">
-                <h1 className="text-4xl font-bold">New Name, Who Dis?</h1>
-                <h2 className="text-xl">Parshas Vayishlach</h2>
+                <div className="flex flex-col gap-1 mb-8">
+                    <p className="text-lg">Parshas Vayishlach</p>
+                    <h1 className="text-4xl font-bold">New Name, Who Dis?</h1>
+                    <h2 className="text-xl">Author</h2>
+                </div>
+                
+                <p>Start of personal text ...</p>
                 <SourceText reference={"Bereshit 32:29"} versions={v_order} use_cols={true} cols={v_order.length} />
                 <SourceText reference={"Bereshit 35:10"} versions={v_order} use_cols={true} cols={v_order.length} />
-
                 <p>Add text</p>
 
-                <h3 className="text-xl font-bold">Additional References</h3>
+                <h3 className="text-xl font-bold my-4">Additional References</h3>
+                
                 <h4 className="text-lg font-bold">Berachot</h4>
                 {/* Berachot 12b:27-13a:1 */}
                 {
