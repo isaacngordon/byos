@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import SourceText from "@/components/Sefariah/SourceText";
+import SiteMap from "@/components/Sefariah/SiteMap";
 
 
 export default function Yisroel() {
@@ -21,6 +22,7 @@ export default function Yisroel() {
 
     return (
         <div className="p-8 gap-4 flex flex-col items-center bg-gray-900 text-white justify-center min-h-screen">
+            {/* <SiteMap /> */}
             <div className="flex flex-col p-8 gap-4">
                 <div className="flex flex-col gap-1 mb-8">
                     <p className="text-lg">Parshas Vayishlach</p>
