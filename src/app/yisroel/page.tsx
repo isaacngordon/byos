@@ -7,9 +7,9 @@ export default function Yisroel() {
     const [references, _setReferences] = React.useState<string[]>([
         "Genesis 32:27",
         "Rashi on Genesis 32:27:2",
-        "Genesis 32:29",
+        // "Genesis 32:29",
         "Rashi on Genesis 32:29:1",
-        "Genesis 35:10",
+        // "Genesis 35:10",
         "Rashi on Genesis 35:10:1",
         "Ramban on Genesis 35:10:1",
         "Rabbeinu Bahya, Bereshit 35:10:1-2",
@@ -28,11 +28,14 @@ export default function Yisroel() {
                 <h1 className="text-4xl font-bold">New Name, Who Dis?</h1>
                 <h2 className="text-xl">Parshas Vayishlach</h2>
 
+                <SourceText reference={"Bereshit 32:29"} versions={["hebrew", "english"]} />
+                <SourceText reference={"Bereshit 35:10"} versions={["hebrew", "english"]} />
+
                 <p>Add text</p>
 
                 {
-                    references.map((ref, index) => (
-                        <SourceText key={index} ref={ref} versions={["hebrew", "english"]} />
+                    references.map((reference, index) => (
+                        <SourceText key={index} reference={reference} versions={["hebrew", "english"]} />
                     ))
                 }
 
