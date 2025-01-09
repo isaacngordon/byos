@@ -8,18 +8,31 @@ const default_whitelist = ["span", "b", "i", "u", "br", "big"]
 interface SourceTextProps {
     reference: string;
     versions: string[];
+    use_cols?: boolean;
     whitelist_html?: string[];
+    cols?: number;
 }
 
 async function get_all_texts(ref: string, versions: string[]) {
     return await Promise.all(versions.map(async (version) => {
         const text = await fetchText(ref, version);
-        return text;
+        return { version, text };
     }));
 }
 
-export default function SourceText({ reference, versions, whitelist_html = default_whitelist }: SourceTextProps) {
-    const [versions_texts, setVersionTexts] = useState<string[]>([]);
+interface VersionText {
+    version: string;
+    text: string;
+}
+
+export default function SourceText({ 
+    reference, 
+    versions = ["hebrew", "english"], 
+    use_cols = false,
+    whitelist_html = default_whitelist,
+    cols = 2
+}: SourceTextProps) {
+    const [versions_texts, setVersionTexts] = useState<VersionText[]>([]);
     const [loading, setLoading] = useState(true);
 
 
@@ -30,10 +43,10 @@ export default function SourceText({ reference, versions, whitelist_html = defau
         setLoading(false);
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         getTexts();
     }, []);
-    
+
 
     return (
         <div className="border border-gray-300 p-4 rounded-lg bg-gray-700 text-white">
@@ -43,10 +56,15 @@ export default function SourceText({ reference, versions, whitelist_html = defau
                     [Source]
                 </Link>
             </div>
-            <ul>
+            <ul className={use_cols ? "grid gap-2 grid-cols-" + cols : ""}>
                 {loading && <div>Loading...</div>}
                 {!loading && versions_texts.map((version, index) => (
-                    <DangerousHtml key={index} text={version} whitelisted_elements={whitelist_html} className="px-2 py-1" />
+                    <DangerousHtml
+                        key={index}
+                        text={version.text}
+                        whitelisted_elements={whitelist_html}
+                        className={`px-2 py-1 ${version.version === "hebrew" ? "text-" : "text-sm"}`}
+                    />
                 ))}
             </ul>
         </div>
