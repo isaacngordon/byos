@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import SourceText from "@/components/Sefariah/SourceText";
-import SiteMap from "@/components/Sefariah/SiteMap";
 
 
 export default function Yisroel() {
@@ -32,7 +31,7 @@ export default function Yisroel() {
 
 
                 <p>
-                    Why does the Torah continue to call Yaakov by the name <i>"Yaakov"</i>, after he is given the name <i>"Yisroel"</i>? I would think that since by Avraham, who has his name-changed quoted once,  we no longer refer to him by is old name, then by Yaakov, where we state twice that Yaakov will no longer be Yaakov, then a reversion in names certainly should be forbidden!
+                    Why does the Torah continue to call Yaakov by the name <i>&quot;Yaakov&quot;</i>, after he is given the name <i>&quot;Yisroel&quot;</i>? I would think that since by Avraham, who has his name-changed quoted once,  we no longer refer to him by is old name, then by Yaakov, where we state twice that Yaakov will no longer be Yaakov, then a reversion in names certainly should be forbidden!
                 </p>
                 
                 <p> Now, it is obvious that his name remains Yaakov since his name is used another XX times in Genesis alone. 
@@ -43,7 +42,7 @@ export default function Yisroel() {
                 />
 
                 <p> 
-                    The real question is really one of consistency, since the first two verses seem to clearly state that <i>"No longer will you be called Jacob"</i>.
+                    The real question is really one of consistency, since the first two verses seem to clearly state that <i>&quot;No longer will you be called Jacob&quot;</i>.
 
                 </p>
                 <SourceText
@@ -58,8 +57,8 @@ export default function Yisroel() {
                 
                 <p>We can bifurcate this question into 4 time periods: </p>
                 <ol className="list-decimal list-inside px-4">
-                        <li>From the time when the spirit of Esau "blesses" Yaakov (Berashit 32:29),  until the time Hashem "blesses" Yisroel (Bereshit 35:10).</li>
-                        <li>From the time when Hashem "blesses" Yisroel (Bereshit 35:10), onwards for the remainder of Yaakov's life, i.e the rest of Bereshit.</li>
+                        <li>From the time when the spirit of Esau &quot;blesses&quot; Yaakov (Berashit 32:29),  until the time Hashem &quot;blesses&quot; Yisroel (Bereshit 35:10).</li>
+                        <li>From the time when Hashem &quot;blesses&quot; Yisroel (Bereshit 35:10), onwards for the remainder of Yaakov&apos;s life, i.e the rest of Bereshit.</li>
                         <li>The remainder of the Tanach,</li>
                         <li>and lastly, the present day.</li>
                     </ol>

@@ -29,7 +29,7 @@ function getSiteMap() {
     ]
 }
 
-function renderItem(item: any, index: number, parent_href: string = "") {
+function renderItem(item: SiteItem, index: number, parent_href: string = "") {
     return (
         <div key={index} className={`${parent_href ? "ml-4" : ""}`}>
             {

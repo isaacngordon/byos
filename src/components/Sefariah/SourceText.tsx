@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import Link from "next/link";
 import { SEFARIA_API_ENDPOINTS, fetchText } from "../../../client/sefariaUtils";
 import DangerousHtml from "./DangerousHtml";
@@ -11,7 +12,7 @@ interface SourceTextProps {
     use_cols?: boolean;
     whitelist_html?: string[];
     cols?: number;
-    mutate?: (text: string) => string;
+    mutate?: (_text: string) => string;
 }
 
 async function get_all_texts(ref: string, versions: string[]) {
@@ -37,18 +38,16 @@ export default function SourceText({
     const [versions_texts, setVersionTexts] = useState<VersionText[]>([]);
     const [loading, setLoading] = useState(true);
 
-
-    async function getTexts() {
+    const getTexts = useCallback(async () => {
         setLoading(true);
         const texts = await get_all_texts(reference, versions);
         setVersionTexts(texts);
         setLoading(false);
-    }
-
+    }, [reference, versions]);
+    
     useEffect(() => {
         getTexts();
-    }, []);
-
+    }, [getTexts]);
 
     return (
         <div className="border border-gray-300 p-4 rounded-lg bg-gray-700 text-white">
