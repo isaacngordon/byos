@@ -1,4 +1,3 @@
-"use server";
 import SourceText from "@/components/Sefariah/SourceText";
 import Link from "next/link";
 import { SEFARIA_API_ENDPOINTS } from "../../../../client/sefariaUtils";

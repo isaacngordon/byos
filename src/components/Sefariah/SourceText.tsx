@@ -1,8 +1,6 @@
-"use client";
 import Link from "next/link";
 import { SEFARIA_API_ENDPOINTS, fetchText } from "../../../client/sefariaUtils";
 import DangerousHtml from "./DangerousHtml";
-import { useEffect, useState , useCallback} from "react";
 
 const default_whitelist = ["span", "b", "i", "u", "br", "big"]
 
@@ -27,7 +25,7 @@ interface VersionText {
     text: string;
 }
 
-export default function SourceText({ 
+export default async function SourceText({ 
     reference, 
     versions = ["hebrew", "english"], 
     use_cols = false,
@@ -35,20 +33,33 @@ export default function SourceText({
     cols = 2,
     mutate = (text) => text
 }: SourceTextProps) {
-    const [versions_texts, setVersionTexts] = useState<VersionText[]>([]);
-    const [loading, setLoading] = useState(true);
+    const versions_texts = await get_all_texts(reference, versions);
+    return (
+        <SourceTextInner
+            reference={reference}
+            versions={versions_texts}
+            use_cols={use_cols}
+            whitelist_html={whitelist_html}
+            mutate={mutate}
+            cols={cols}
+        />
+    );
+}
 
-    const getTexts = useCallback(async () => {
-        setLoading(true);
-        const texts = await get_all_texts(reference, versions);
-        setVersionTexts(texts);
-        setLoading(false);
-    }, [reference, versions]);
-    
-    useEffect(() => {
-        getTexts();
-    }, [getTexts]);
+interface SourceTextInnerProps {
+    reference: string;
+    versions: VersionText[];
+    whitelist_html?: string[];
+    mutate?: (_text: string) => string;
+    use_cols?: boolean;
+    cols?: number;
+}
 
+
+function SourceTextInner({
+    reference, versions, whitelist_html = default_whitelist, mutate = (text) => text,
+    use_cols = false, cols = 2
+}: SourceTextInnerProps) {
     return (
         <div className="border border-gray-300 p-4 rounded-lg bg-gray-700 text-white">
             <div className="flex flex-row justify-between gap-2 mb-2">
@@ -58,8 +69,7 @@ export default function SourceText({
                 </Link>
             </div>
             <ul className={use_cols ? "grid gap-2 grid-cols-" + cols : ""}>
-                {loading && <div>Loading...</div>}
-                {!loading && versions_texts.map((version, index) => (
+                {versions.map((version, index) => (
                     <DangerousHtml
                         key={index}
                         text={mutate(version.text)}
