@@ -1,4 +1,4 @@
-import SourceText from "@/components/Sefariah/SourceText";
+import SefariahSourceText from "@/components/Sefariah/SefariahSourceText";
 import Link from "next/link";
 import { SEFARIA_API_ENDPOINTS } from "../../../../client/sefariaUtils";
 
@@ -36,7 +36,7 @@ export default async function Yisroel() {
 
                 <p> Now, it is obvious that his name remains Yaakov since his name is used another XX times in Genesis alone.
                     Rashi at the top of <i>Berachot 13a</i> highlights an interesting example, <i>Bereshit 46:2</i> where both names are used back to back:</p>
-                <SourceText
+                <SefariahSourceText
                     reference={"Bereshit 46:2"}
                     versions={v_order} use_cols={true} cols={v_order.length}
                 />
@@ -44,12 +44,12 @@ export default async function Yisroel() {
                 <p>
                     The real question is really one of consistency, since the first two verses seem to clearly state that <i>&quot;No longer will you be called Jacob&quot;</i>.
                 </p>
-                <SourceText
+                <SefariahSourceText
                     reference={"Bereshit 32:29"}
                     versions={v_order} use_cols={true} cols={v_order.length}
                 // mutate={(text) => text.replace(/and/g, "<span style=\"color: red;\">and</span>")}
                 />
-                <SourceText
+                <SefariahSourceText
                     reference={"Bereshit 35:10"}
                     versions={v_order} use_cols={true} cols={v_order.length}
                 />
@@ -70,14 +70,14 @@ export default async function Yisroel() {
                     <TestQuote snippet={"וַיֹּ֙אמֶר֙ לֹ֣א אֲשַֽׁלֵּחֲךָ֔ כִּ֖י אִם־בֵּרַכְתָּֽנִי"} source_ref={"Bereshit 32:27"} />
                     is a request for concession on the matter of the blessing Yaakov took from his brother.
                 </p>
-                <SourceText
+                <SefariahSourceText
                     reference={"Rashi on Bereshit 32:27:2"}
                     versions={v_order} use_cols={true} cols={v_order.length}
                 />
                 <p>
                     And in response, the angel is letting Yaakov know that indeed he earned the Blessings, for it will happen in the future that Hashem will rename him. The angel is bringing a proof to Yaakov&apos;s claim.
                 </p>
-                <SourceText
+                <SefariahSourceText
                     reference={"Rashi on Bereshit 32:29:1"}
                     versions={v_order} use_cols={true} cols={v_order.length}
                 />
@@ -93,7 +93,7 @@ export default async function Yisroel() {
                     as a proof that even after, Yaakov&apos;s name shall not be supplanted
 
                 </p>
-                <SourceText
+                <SefariahSourceText
                     reference={"Ramban on Bereshit 35:10:1"}
                     versions={v_order} use_cols={true} cols={v_order.length}
                 />
@@ -109,7 +109,7 @@ export default async function Yisroel() {
                         "Berachot 12b:28",
                         "Berachot 13a:1",
                     ].map((reference, index) => (
-                        <SourceText key={index} reference={reference} versions={v_order} use_cols={true} cols={v_order.length} />
+                        <SefariahSourceText key={index} reference={reference} versions={v_order} use_cols={true} cols={v_order.length} />
                     ))
                 }
 
@@ -128,7 +128,7 @@ export default async function Yisroel() {
                         "Berachot 13a:13",
                         "Berachot 13a:14",
                     ].map((reference, index) => (
-                        <SourceText key={index} reference={reference} versions={v_order} use_cols={true} cols={v_order.length} />
+                        <SefariahSourceText key={index} reference={reference} versions={v_order} use_cols={true} cols={v_order.length} />
                     ))
                 }
 
@@ -136,7 +136,7 @@ export default async function Yisroel() {
                 {/* Additional references */}
                 {
                     addtl_references.map((reference, index) => (
-                        <SourceText key={index} reference={reference} versions={v_order} use_cols={true} cols={v_order.length} />
+                        <SefariahSourceText key={index} reference={reference} versions={v_order} use_cols={true} cols={v_order.length} />
                     ))
                 }
 

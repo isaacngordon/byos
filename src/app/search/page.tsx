@@ -1,5 +1,5 @@
 import Search from "@/components/Sefariah/Search";
-import SiteMap from "@/components/Sefariah/SiteMap";
+import SiteMap from "@/components/SiteMap";
 
 
 // async function fetchData() {

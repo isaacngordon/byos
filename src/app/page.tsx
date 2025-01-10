@@ -1,4 +1,4 @@
-import SiteMap from "@/components/Sefariah/SiteMap";
+import SiteMap from "@/components/SiteMap";
 
 export default async function Home() {
 
